@@ -20,6 +20,7 @@ const int dot = 250;
 const int dash = dot * 3;
 const int wordSpace = dot * 7;
 
+// set the message you want displayed here:
 const char message[] = "SOS";
 const int messageLength = strlen(message);
 
