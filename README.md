@@ -3,7 +3,7 @@ arduino_morse_code
 
 Translating messages into led flashes on an Arduino board
 
-the file morse_code.ino should go in a folder called morse_code for it to work with the Arduino IDE
+the file morse_code.ino should be placed in a folder called morse_code for it to work with the Arduino IDE
 
 Extending: 
 1. Accept and translate messages input by user
