@@ -2,8 +2,12 @@
   Morse Code
   
   Turns characters input by user into Morse Code signals
-
+  
+  You can change the message on line 27: const char message[] = "SOS"; put alphanumeric characters and spaces inside the "..."s where SOS currently is.
+  You can changet the length of dots and dashes by changing the value of int dot on line 23 where 250 currently is. The length of dashes and spaces are derived from the length of dot.
+  
 */
+
 /* Wikipedia: http://en.wikipedia.org/wiki/File:International_Morse_Code.svg
   1. the length of a dot is one unit
   2. a dash is three units
@@ -20,7 +24,7 @@ const int dot = 250;
 const int dash = dot * 3;
 const int wordSpace = dot * 7;
 
-// set the message you want displayed here:
+// set the message you want displayed here; currently only handles a-z & 0-9
 const char message[] = "SOS";
 const int messageLength = strlen(message);
 
@@ -30,7 +34,7 @@ void setup() {
 }
 
 void loop() {
-  // returning arrays from functions: http://arduino.cc/forum/index.php/topic,42934.0.html
+  // returning arrays from functions, kind of: http://arduino.cc/forum/index.php/topic,42934.0.html
   // holds an array of ints, with max length of 5
   // values in signal is changed in translate() with pointer to this variable
   int signal[5];
@@ -44,10 +48,10 @@ void loop() {
     
     messageOutput(signal, signalSize);
     
-    // handle end of message with long delay
+    // handle end of message with long delay (dot *14)
     if (msgLenIdx == messageLength) {
       Serial.println("_________END OF MESSAGE__________");
-      delay(wordSpace);
+      delay(wordSpace * 2);
       msgLenIdx = 0;
     }
     msgLenIdx++;
@@ -61,6 +65,7 @@ void loop() {
  *
  * @param {char} character  the single message character that is to be turned into dots and/or dashes
  * @param {pointer} psignal[]  points to signal[]; allows function to alter signal[] (i.e., fill it with dots and dashes related to character)
+ *
  * @return the length of the signal; used by messageOutput in for loop to know how many times to go through (the number of elements in signal[])
  */
 // was getting "invalid conversion from 'char' to 'const char*" error when I called character a String
@@ -374,7 +379,5 @@ void messageOutput(int signalP[], int signalSize) {
       Serial.println("\n");
       delay(dash);
     }
-
   }
-
 }
