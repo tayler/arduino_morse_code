@@ -24,7 +24,7 @@ const int dot = 250;
 const int dash = dot * 3;
 const int wordSpace = dot * 7;
 
-// set the message you want displayed here; currently only handles a-z & 0-9
+// set the message you want displayed here; currently only handles a-z, A-Z, & 0-9
 const char message[] = "SOS";
 const int messageLength = strlen(message);
 
@@ -36,7 +36,7 @@ void setup() {
 void loop() {
   // returning arrays from functions, kind of: http://arduino.cc/forum/index.php/topic,42934.0.html
   // holds an array of ints, with max length of 5
-  // values in signal is changed in translate() with pointer to this variable
+  // values in signal[] are changed in translate() with pointer to this variable
   int signal[5];
   int msgLenIdx = 0;
   
@@ -48,7 +48,7 @@ void loop() {
     
     messageOutput(signal, signalSize);
     
-    // handle end of message with long delay (dot *14)
+    // handle end of message with long delay (dot * 14)
     if (msgLenIdx == messageLength) {
       Serial.println("_________END OF MESSAGE__________");
       delay(wordSpace * 2);
@@ -112,14 +112,14 @@ int translate(char character, int psignal[]) {
        return 4;
        break;
      case 'g':
-       // psignal[0] = {dash, dash, dot};
+//     {dash, dash, dot};
        psignal[0] = dash;
        psignal[1] = dash;
        psignal[2] = dot;
        return 3;
        break;
      case 'h':
-//       psignal[0] = {dot, dot, dot, dot};
+//     {dot, dot, dot, dot};
        psignal[0] = dot;
        psignal[1] = dot;
        psignal[2] = dot;
@@ -127,13 +127,13 @@ int translate(char character, int psignal[]) {
        return 4;
        break;
      case 'i':
-//       psignal[0] = {dot, dot};
+//     {dot, dot};
        psignal[0] = dot;
        psignal[1] = dot;
        return 2;
        break;
      case 'j':
-//       psignal[0] = {dot, dash, dash, dash};
+//     {dot, dash, dash, dash};
        psignal[0] = dot;
        psignal[1] = dash;
        psignal[2] = dash;
@@ -141,14 +141,14 @@ int translate(char character, int psignal[]) {
        return 4;
        break;
      case 'k':
-//       psignal[0] = {dash, dot, dash};
+//     {dash, dot, dash};
        psignal[0] = dash;
        psignal[1] = dot;
        psignal[2] = dash;
        return 3;
        break;
      case 'l':
-//       psignal[0] = {dot, dash, dot, dot};
+//     {dot, dash, dot, dot};
        psignal[0] = dot;
        psignal[1] = dash;
        psignal[2] = dot;
@@ -156,26 +156,26 @@ int translate(char character, int psignal[]) {
        return 4;
        break;
      case 'm':
-//       psignal[0] = {dash, dash};
+//     {dash, dash};
        psignal[0] = dash;
        psignal[1] = dash;
        return 2;
        break;
      case 'n':
-//       psignal[0] = {dash, dot};
+//     {dash, dot};
        psignal[0] = dash;
        psignal[1] = dot;
        return 2;
        break;
      case 'o':
-//       psignal[0] = {dash, dash, dash};
+//     {dash, dash, dash};
        psignal[0] = dash;
        psignal[1] = dash;
        psignal[2] = dash;
        return 3;
        break;
      case 'p':
-//       psignal[0] = {dot, dash, dash, dot};
+//     {dot, dash, dash, dot};
        psignal[0] = dot;
        psignal[1] = dash;
        psignal[2] = dash;
@@ -183,7 +183,7 @@ int translate(char character, int psignal[]) {
        return 4;
        break;
      case 'q':
-//       psignal[0] = {dash, dash, dot, dash};
+//     {dash, dash, dot, dash};
        psignal[0] = dash;
        psignal[1] = dash;
        psignal[2] = dot;
@@ -191,33 +191,33 @@ int translate(char character, int psignal[]) {
        return 4;
        break;
      case 'r':
-//       psignal[0] = {dot, dash, dot};
+//     {dot, dash, dot};
        psignal[0] = dot;
        psignal[1] = dash;
        psignal[2] = dot;
        return 3;
        break;
      case 's':
-//       psignal[0] = {dot, dot, dot};
+//     {dot, dot, dot};
        psignal[0] = dot;
        psignal[1] = dot;
        psignal[2] = dot;
        return 3;
        break;
      case 't':
-//       psignal[0] = {dash};
+//     {dash};
        psignal[0] = dash;
        return 1;
        break;
      case 'u':
-//       psignal[0] = {dot, dot, dash};
+//     {dot, dot, dash};
        psignal[0] = dot;
        psignal[1] = dot;
        psignal[2] = dash;
        return 3;
        break;
      case 'v':
-//       psignal[0] = {dot, dot, dot, dash};
+//     {dot, dot, dot, dash};
        psignal[0] = dot;
        psignal[1] = dot;
        psignal[2] = dot;
@@ -225,14 +225,14 @@ int translate(char character, int psignal[]) {
        return 4;
        break;
      case 'w':
-//       psignal[0] = {dot, dash, dash};
+//     {dot, dash, dash};
        psignal[0] = dot;
        psignal[1] = dash;
        psignal[2] = dash;
        return 3;
        break;
      case 'x':
-//       psignal[0] = {dash, dot, dot, dash};
+//     {dash, dot, dot, dash};
        psignal[0] = dash;
        psignal[1] = dot;
        psignal[2] = dot;
@@ -240,7 +240,7 @@ int translate(char character, int psignal[]) {
        return 4;
        break;
      case 'y':
-//       psignal[0] = {dash, dot, dash, dash};
+//     {dash, dot, dash, dash};
        psignal[0] = dash;
        psignal[1] = dot;
        psignal[2] = dash;
@@ -248,7 +248,7 @@ int translate(char character, int psignal[]) {
        return 4;
        break;
      case 'z':
-//       psignal[0] = {dash, dash, dot, dot};
+//     {dash, dash, dot, dot};
        psignal[0] = dash;
        psignal[1] = dash;
        psignal[2] = dot;
@@ -263,7 +263,7 @@ int translate(char character, int psignal[]) {
      
      // numbers
      case '1':
-//       psignal[0] = {dot, dash, dash, dash, dash};
+//     {dot, dash, dash, dash, dash};
        psignal[0] = dot;
        psignal[1] = dash;
        psignal[2] = dash;
@@ -272,7 +272,7 @@ int translate(char character, int psignal[]) {
        return 5;
        break;
      case '2':
-//       psignal[0] = {dot, dot, dash, dash, dash};
+//     {dot, dot, dash, dash, dash};
        psignal[0] = dot;
        psignal[1] = dot;
        psignal[2] = dash;
@@ -281,7 +281,7 @@ int translate(char character, int psignal[]) {
        return 5;
        break;
      case '3':
-//       psignal[0] = {dot, dot, dot, dash, dash};
+//     {dot, dot, dot, dash, dash};
        psignal[0] = dot;
        psignal[1] = dot;
        psignal[2] = dot;
@@ -290,7 +290,7 @@ int translate(char character, int psignal[]) {
        return 5;
        break;
      case '4':
-//       psignal[0] = {dot, dot, dot, dot, dash};
+//     {dot, dot, dot, dot, dash};
        psignal[0] = dot;
        psignal[1] = dot;
        psignal[2] = dot;
@@ -299,7 +299,7 @@ int translate(char character, int psignal[]) {
        return 5;
        break;
      case '5':
-//       psignal[0] = {dot, dot, dot, dot, dot};
+//     {dot, dot, dot, dot, dot};
        psignal[0] = dot;
        psignal[1] = dot;
        psignal[2] = dot;
@@ -308,7 +308,7 @@ int translate(char character, int psignal[]) {
        return 5;
        break;
      case '6':
-//       psignal[0] = {dash, dot, dot, dot, dot};
+//     {dash, dot, dot, dot, dot};
        psignal[0] = dash;
        psignal[1] = dot;
        psignal[2] = dot;
@@ -317,7 +317,7 @@ int translate(char character, int psignal[]) {
        return 5;
        break;
      case '7':
-//       psignal[0] = {dash, dash, dot, dot, dot};
+//     {dash, dash, dot, dot, dot};
        psignal[0] = dash;
        psignal[1] = dash;
        psignal[2] = dot;
@@ -325,7 +325,7 @@ int translate(char character, int psignal[]) {
        psignal[4] = dot;
        break;
      case '8':
-//       psignal[0] = {dash, dash, dash, dot, dot};
+//     {dash, dash, dash, dot, dot};
        psignal[0] = dash;
        psignal[1] = dash;
        psignal[2] = dash;
@@ -334,7 +334,7 @@ int translate(char character, int psignal[]) {
        return 5;
        break;
      case '9':
-//       psignal[0] = {dash, dash, dash, dash, dot};
+//     {dash, dash, dash, dash, dot};
        psignal[0] = dash;
        psignal[1] = dash;
        psignal[2] = dash;
@@ -343,7 +343,7 @@ int translate(char character, int psignal[]) {
        return 5;
        break;
      case '0':
-//       psignal[0] = {dash, dash, dash, dash, dash};
+//     {dash, dash, dash, dash, dash};
        psignal[0] = dash;
        psignal[1] = dash;
        psignal[2] = dash;
