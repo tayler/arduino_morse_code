@@ -24,7 +24,7 @@ const int dot = 250;
 const int dash = dot * 3;
 const int wordSpace = dot * 7;
 
-// set the message you want displayed here; currently only handles a-z, A-Z, & 0-9
+// set the message you want displayed here; currently only handles a-z, A-Z,  0-9, and spaces
 const char message[] = "SOS";
 const int messageLength = strlen(message);
 
